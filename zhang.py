@@ -53,9 +53,9 @@ def calibrate():
 if __name__ == "__main__":
 
     dir = './pic'
-    row = 9
-    column = 6
-    unit_length = 1
+    row = 8
+    column = 11
+    unit_length = 0.02
 
     real_points = []
     real_points_x_y = []

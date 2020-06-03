@@ -52,14 +52,14 @@ def get_homography(pic, real):
 
     for i in range(len(pic)):
         M = []
-        # # 构造标准化矩阵
+        # 构造标准化矩阵
         # pic_norm_mat = normalizing_input_data(pic[i])
         # real_norm_mat = normalizing_input_data(real[i])
         for j in range(len(pic[i])):
             # 转齐次坐标
             hom_pic = np.array([pic[i][j][0], pic[i][j][1], 1])
             hom_real = np.array([real[i][j][0], real[i][j][1], 1])
-            # # 标准化
+            # 标准化
             # hom_pic = np.dot(pic_norm_mat, hom_pic)
             # hom_real = np.dot(real_norm_mat, hom_real)
             # hom_pic = np.array(hom_pic).squeeze()
@@ -75,7 +75,7 @@ def get_homography(pic, real):
         U, S, V = np.linalg.svd((np.array(M, dtype='float')).reshape((-1, 9)))
         H = V[-1].reshape((3, 3))
 
-        # # 去归一化
+        # 去归一化
         # H = np.dot(np.dot(np.linalg.inv(pic_norm_mat), H), real_norm_mat)
 
         H /= H[-1, -1]
